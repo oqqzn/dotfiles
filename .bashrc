@@ -71,36 +71,14 @@ PROMPT_COMMAND='
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias vim='nvim'
 alias v='nvim'
 
 # Custom alias shortcuts (adjust paths if needed)
-alias config='cd ~/.config/nvim/'
-alias training='cd ~/training/'
+alias config='cd ~/dotfiles'
 alias vault='cd ~/Documents/master-00/'
 
 # Set default editor
 export EDITOR=nvim
-
-# NVM (Node Version Manager)
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-#[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-
-# Cargo (Rust)
-#[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-
-# Julia (juliaup)
-#export PATH="$HOME/.juliaup/bin:$PATH"
-
-# Go
-#export PATH="$HOME/go/bin:$PATH"
-
-# Claude local (optional)
-# alias claude="/path/to/claude"
-
-# pipx (optional if used)
-# export PATH="$HOME/.local/bin:$PATH"
 
 # Editor
 export EDITOR=nvim
