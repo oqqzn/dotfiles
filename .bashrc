@@ -40,32 +40,32 @@ export GIT_PS1_SHOWCOLORHINTS=1
 export GIT_PS1_DESCRIBE_STYLE="branch"
 
 # Prompt (includes venv and git)
-PROMPT_COMMAND='
-    echo -ne "\033]0;main\007";
+prompt_cmd() {
+    # window title
+    printf '\033]0;%s\007' "main"
 
-    # Virtualenv logic
-    if [ -n "$VIRTUAL_ENV" ]; then
-        venv_base="$(basename "$VIRTUAL_ENV")"
-        venv_dir="$(dirname "$VIRTUAL_ENV")"
-        current_dir="$PWD"
-
-        if [ "$venv_dir" = "$current_dir" ]; then
-            venv_part="(\[\e[1;32m\]${venv_base}\[\e[0m\])"
+    # --- virtual-env ---
+    venv_part=""
+    if [[ -n $VIRTUAL_ENV ]]; then
+        venv_base=${VIRTUAL_ENV##*/}
+        venv_dir=${VIRTUAL_ENV%/*}
+        if [[ $venv_dir == $PWD ]]; then
+            venv_part="(\[\e[1;32m\]$venv_base\[\e[0m\])"
         else
-            venv_parent="$(basename "$venv_dir")"
-            venv_part="(\[\e[1;32m\]${venv_parent}/${venv_base}\[\e[0m\])"
+            venv_part="(\[\e[1;32m\]${venv_dir##*/}/$venv_base\[\e[0m\])"
         fi
-    else
-        venv_part=""
     fi
 
-    # Git branch
-    git_part=$(__git_ps1 "(\[\e[1;34m\]%s\[\e[0m\])")
+    # --- git ---
+    git_part=$(__git_ps1 '(\[\e[1;34m\]%s\[\e[0m\])')
 
-    # Final PS1
-    PS1="\[\e[1;36m\]→ \[\e[0m\]${venv_part}${git_part} \[\e[35m\]\W\[\e[0m\] "
-'
+    # assemble prompt
+    PS1="${venv_part}${git_part} \[\e[35m\]\W\[\e[0m\]  \[\e[1;36m\]→ \[\e[0m\] "
+}
+PROMPT_COMMAND=prompt_cmd
 
+# → (.venv)(main) spanner
+# PS1="\[\e[1;36m\]→ \[\e[0m\]${venv_part}${git_part} \[\e[35m\]\W\[\e[0m\] "
 
 # Aliases
 alias ll='ls -alF'
