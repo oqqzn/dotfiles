@@ -73,7 +73,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Custom alias shortcuts (adjust paths if needed)
-alias config='cd ~/dotfiles'
+alias config='cd ~/config'
 alias vault='cd ~/Documents/master-00/'
 alias v='nvim'
 alias epa='cd ~/workspace/epworth-automation/'
