@@ -16,7 +16,7 @@ return {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
-						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 					},
 				},
 			},
@@ -36,7 +36,7 @@ return {
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Files PWD" })
 		keymap.set("n", "<leader>fa", function()
 			require("telescope.builtin").find_files({
-				cwd = "/home/oqqzn", -- Start searching from the home
+                cwd = vim.loop.os_homedir(), -- Start searching from the home
 				hidden = true, -- Include hidden files in the search
 			})
 		end, { desc = "Files ~" })

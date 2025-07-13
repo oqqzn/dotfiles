@@ -73,12 +73,17 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Custom alias shortcuts
-alias config='cd ~/config'
-alias vault='cd ~/Documents/master-00/'
 alias v='nvim'
+alias cloud='cd ~/iCloud/'
+alias proton='cd ~/ProtonDrive/'
+alias drive='cd ~/OneDrive/'
+alias vault='cd ~/Documents/master-00/'
+alias workspace='cd ~/workspace/'
 alias epa='cd ~/workspace/epworth-automation/'
 alias usdlf='cd ~/workspace/usdlf/'
-alias workspace='cd ~/workspace/'
+alias config='cd ~/config'
+alias bashrc='v ~/config/.bashrc'
+alias reload='source ~/config/.bashrc'
 
 # Set default editor
 export EDITOR=nvim
