@@ -64,7 +64,7 @@ prompt_cmd() {
 }
 PROMPT_COMMAND=prompt_cmd
 
-# → (.venv)(main) spanner
+# → (.venv)(main) directory
 # PS1="\[\e[1;36m\]→ \[\e[0m\]${venv_part}${git_part} \[\e[35m\]\W\[\e[0m\] "
 
 # Aliases
@@ -72,7 +72,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Custom alias shortcuts (adjust paths if needed)
+# Custom alias shortcuts
 alias config='cd ~/config'
 alias vault='cd ~/Documents/master-00/'
 alias v='nvim'
@@ -83,7 +83,5 @@ alias workspace='cd ~/workspace/'
 # Set default editor
 export EDITOR=nvim
 
-# Editor
-export EDITOR=nvim
-#alias claude="/home/oqqzn/.claude/local/claude"
+# Silence Bash warning on Mac
 export BASH_SILENCE_DEPRECATION_WARNING=1
