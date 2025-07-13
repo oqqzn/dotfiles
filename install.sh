@@ -2,16 +2,16 @@
 
 set -e  # Exit on any error
 
-DOTFILES_DIR="$HOME/dotfiles"
+CONFIG_DIR="$HOME/config"
 
 echo "Linking top-level dotfiles..."
-ln -sf "$DOTFILES_DIR/.bashrc" ~/.bashrc
-ln -sf "$DOTFILES_DIR/.bash_profile" ~/.bash_profile
-ln -sf "$DOTFILES_DIR/.tmux.conf" ~/.tmux.conf
+ln -sf "$CONFIG_DIR/.bashrc" ~/.bashrc
+ln -sf "$CONFIG_DIR/.bash_profile" ~/.bash_profile
+ln -sf "$CONFIG_DIR/.tmux.conf" ~/.tmux.conf
 
 echo "Linking Neovim config..."
 mkdir -p ~/.config
-ln -sf "$DOTFILES_DIR/.config/nvim" ~/.config/nvim
+ln -sf "$CONFIG_DIR/nvim" ~/.config/nvim
 
 echo "Setting up Neovim Python virtual environment (if missing)..."
 VENV_PATH="$HOME/.config/nvim/.venv"
@@ -23,4 +23,4 @@ else
   echo "Python venv already exists."
 fi
 
-echo "Dotfiles setup complete."
+echo "Config setup complete."

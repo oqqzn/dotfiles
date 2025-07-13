@@ -1,13 +1,13 @@
-# Dotfiles
+# Config
 
-For macOS and Unix-like systems.
+Personal configuration files for macOS and Unix-like systems.
 
 ## Includes
 
 - `.bashrc` / `.bash_profile` for shell config
   - Secure handling of environment secrets via `.env` (will need to be configured in ~/)
 - `.tmux.conf` for terminal multiplexing
-- Full Neovim setup (`~/.config/nvim`)
+- Full Neovim setup (`nvim/`)
 - A local Python virtual environment for `pynvim`
 - An `install.sh` to automate it all
 
@@ -18,8 +18,8 @@ For macOS and Unix-like systems.
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/dotfiles.git ~/dotfiles
-cd ~/dotfiles
+git clone https://github.com/oqqzn/config.git ~/config
+cd ~/config
 ```
 
 ### 2. Run the install script
@@ -30,10 +30,10 @@ cd ~/dotfiles
 
 The script will symlink the following:
 
-- `~/dotfiles/.bashrc` → `~/.bashrc`
-- `~/dotfiles/.bash_profile` → `~/.bash_profile`
-- `~/dotfiles/.tmux.conf` → `~/.tmux.conf`
-- `~/dotfiles/.config/nvim` → `~/.config/nvim`
+- `~/config/.bashrc` → `~/.bashrc`
+- `~/config/.bash_profile` → `~/.bash_profile`
+- `~/config/.tmux.conf` → `~/.tmux.conf`
+- `~/config/nvim` → `~/.config/nvim`
 
 It will also:
 - Create a Neovim-local Python virtualenv at `~/.config/nvim/.venv`
@@ -101,23 +101,21 @@ You should see:
 ## 📁 Project Structure
 
 ```
-~/dotfiles/
+~/config/
 ├── .bashrc
 ├── .bash_profile
 ├── .tmux.conf
 ├── install.sh
 ├── .gitignore
-├── .config/
-│   └── nvim/
-│       ├── init.lua
-│       ├── lua/
-│       │   └── oqqzn/
-│       │       ├── core/
-│       │       ├── lazy.lua
-│       │       └── plugins/
-│       └── .venv/ (not tracked)
+├── nvim/
+│   ├── init.lua
+│   ├── lua/
+│   │   └── oqqzn/
+│   │       ├── core/
+│   │       ├── lazy.lua
+│   │       └── plugins/
+│   └── .venv/ (created at ~/.config/nvim/.venv, not in repo)
 └── README.md
-
 ```
 
 ---
@@ -128,11 +126,11 @@ These are ignored in `.gitignore`:
 
 ```
 .env
-.config/nvim/lazy-lock.json
-.config/nvim/.venv/
+nvim/lazy-lock.json
+nvim/.venv/
 ```
 
-**Make sure you never commit `.env` or `.venv`.**
+**Note:** The `.venv` is actually created at `~/.config/nvim/.venv` (not in the repo), but this gitignore entry is kept for safety.
 
 ---
 
@@ -146,9 +144,9 @@ These are ignored in `.gitignore`:
 
 ## Notes
 
-- All config files are stored in `~/dotfiles` and symlinked into place
+- All config files are stored in `~/config` and symlinked into place
 - **Do not version** `.venv` or `.env`
-- You can edit configs in the `~/dotfiles` repo directly
+- You can edit configs in the `~/config` repo directly
 - Changes apply immediately thanks to symlinks
 
 ---
@@ -157,7 +155,7 @@ These are ignored in `.gitignore`:
 
 - Delete `~/.config/nvim/.venv` to reset the Python environment
 - Update `~/.env` if rotating credentials
-- Rerun `./install.sh` to relink dotfiles
+- Rerun `./install.sh` to relink config files
 
 ---
 

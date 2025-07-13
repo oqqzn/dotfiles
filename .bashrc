@@ -71,11 +71,14 @@ PROMPT_COMMAND=prompt_cmd
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias v='nvim'
 
 # Custom alias shortcuts (adjust paths if needed)
 alias config='cd ~/dotfiles'
 alias vault='cd ~/Documents/master-00/'
+alias v='nvim'
+alias epa='cd ~/workspace/epworth-automation/'
+alias usdlf='cd ~/workspace/usdlf/'
+alias workspace='cd ~/workspace/'
 
 # Set default editor
 export EDITOR=nvim
